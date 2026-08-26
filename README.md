@@ -753,9 +753,50 @@ MyAI 不把模型當作整個產品。
 
 ---
 
-## 🌍 20. Platform Independence — 不綁死平台
+## 🌍 Platform Independence — 不綁死平台
 
-MyAI 的核心架構與 Runtime Layer 分離。
+MyAI 的核心架構與底層 Runtime 分離。
+
+設計目標不是只服務 Android。
+
+理論上，只要平台能提供 MyAI 所需要的 Runtime 與相容依賴，就可以建立對應平台版本。
+
+目前可規劃支援：
+
+- 🤖 Android
+- 🪟 Windows
+- 🍎 macOS
+- 🐧 Linux
+
+而 MyAI 的核心 Agent、Memory、Context、Tool Framework 與 Security 架構可以維持相對獨立。
+
+因此 MyAI 的概念不是：
+
+«「一個只能在 Android 上跑的 AI。」»
+
+而是：
+
+«「一個可以被移植到不同平台的 Local AI Agent System。」»
+
+例如：
+
+Android
+  └── Termux Runtime
+
+Linux
+  └── Native Linux Runtime
+
+Windows
+  └── Windows Runtime
+
+macOS
+  └── macOS Runtime
+
+平台不同，不代表 MyAI 必須重新設計。
+
+只需要讓底層 Runtime 與平台相關元件適配即可。
+
+«同一個 Agent Core，不同的平台 Runtime。 🌍»
 
              🤖 MyAI Core
                   │
