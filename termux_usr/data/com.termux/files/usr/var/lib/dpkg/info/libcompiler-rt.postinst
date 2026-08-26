@@ -1,0 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/bash
+if [[ -e "/data/data/com.termux/files/usr/opt/ndk-multilib/cross-compiler-rt" ]]; then
+    find /data/data/com.termux/files/usr/opt/ndk-multilib/cross-compiler-rt -type f ! -name "lib*-aarch64-*" -exec ln -sf "{}" /data/data/com.termux/files/usr/lib/clang/21/lib/linux \;
+fi
+exit 0

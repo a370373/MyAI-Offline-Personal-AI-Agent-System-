@@ -1,0 +1,26 @@
+{
+    "system_info": {
+        "module": "tools.system_info",
+        "description": "查看系統資訊"
+    },
+    "file_manager": {
+        "module": "tools.file_manager",
+        "description": "管理檔案與資料夾"
+    },
+    "current_time": {
+        "module": "tools.time_tool",
+        "description": "取得目前時間"
+    },
+    "shell": {
+        "module": "tools.shell_tool",
+        "description": "執行 Termux 指令"
+    },
+    "project_scanner": {
+        "module": "tools.project_scanner",
+        "description": "分析專案結構"
+    },
+    "knowledge_search": {
+        "module": "tools.knowledge_tool",
+        "description": "搜尋專案知識"
+    }
+}

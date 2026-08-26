@@ -1,0 +1,12 @@
+5dded7ba944e9ba63abc4565294d4184  data/data/com.termux/files/usr/include/expat.h
+1ccab7931ff207fd2ae12cd064a7444c  data/data/com.termux/files/usr/include/expat_config.h
+c2f4fb945d17000d43846ca1c05c4f15  data/data/com.termux/files/usr/include/expat_external.h
+0fa941189430a55fc8c14063016377ab  data/data/com.termux/files/usr/lib/cmake/expat-2.8.2/expat-config-version.cmake
+23b18aad945e5b0d50162b145bda8b78  data/data/com.termux/files/usr/lib/cmake/expat-2.8.2/expat-config.cmake
+48f1031e54fcb99427cef228db2da342  data/data/com.termux/files/usr/lib/cmake/expat-2.8.2/expat-noconfig.cmake
+d1ab0366264d00965c0ebb558d979063  data/data/com.termux/files/usr/lib/cmake/expat-2.8.2/expat.cmake
+748f017ec3a5c7c9ed90135c16046402  data/data/com.termux/files/usr/lib/libexpat.so.1.12.2
+c00b874d25608c84629d0129473c426f  data/data/com.termux/files/usr/lib/pkgconfig/expat.pc
+4fcc7d1effd5d9789581801bd86b27d2  data/data/com.termux/files/usr/share/doc/expat/AUTHORS
+82539852c3599c0898c1e2de62ee2d62  data/data/com.termux/files/usr/share/doc/expat/changelog
+f4fedd6116da0e171f7cb4d2923d7ac2  data/data/com.termux/files/usr/share/doc/libexpat/copyright

@@ -1,0 +1,32 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+if [[ -f "/data/data/com.termux/files/usr/bin/pip" && 	 ! (("debian" = "debian" && -f /data/data/com.termux/files/usr/var/lib/dpkg/info/python-pip.list) || 	    ("debian" = "pacman" && $(ls /data/data/com.termux/files/usr/var/lib/pacman/local/python-pip-* 2>/dev/null))) ]]; then
+echo "Removing pip..."
+rm -f /data/data/com.termux/files/usr/bin/pip /data/data/com.termux/files/usr/bin/pip3* /data/data/com.termux/files/usr/bin/easy_install /data/data/com.termux/files/usr/bin/easy_install-3*
+rm -Rf /data/data/com.termux/files/usr/lib/python3.14/site-packages/pip
+rm -Rf /data/data/com.termux/files/usr/lib/python3.14/site-packages/pip-*.dist-info
+fi
+
+if [ ! -f "/data/data/com.termux/files/usr/bin/pip" ]; then
+echo
+echo "== Note: pip is now separate from python =="
+echo "To install, enter the following command:"
+echo "   pkg install python-pip"
+echo
+fi
+
+if [[ -d /data/data/com.termux/files/usr/lib/python3.11/site-packages || -d /data/data/com.termux/files/usr/lib/python3.12/site-packages ]]; then
+echo
+echo "NOTE: The system python package has been updated to 3.13."
+echo "NOTE: Run 'pkg upgrade' to update system python packages."
+echo "NOTE: Packages installed using pip needs to be re-installed."
+echo
+fi
+
+if [ "$1" != "configure" ]; then
+exit 0
+fi
+if [ -f "/data/data/com.termux/files/usr/bin/py3compile" ]; then
+LD_PRELOAD='' "/data/data/com.termux/files/usr/bin/py3compile" -p "python" "/data/data/com.termux/files/usr/lib/python3.14/"
+fi
+exit 0

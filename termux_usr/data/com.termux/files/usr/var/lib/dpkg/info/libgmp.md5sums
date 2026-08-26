@@ -1,0 +1,9 @@
+efc3ca0efc78bbd52ae391f3e95b8836  data/data/com.termux/files/usr/share/info/gmp.info-1
+f1ffed01bcd7ce8cafdea11e979c6831  data/data/com.termux/files/usr/share/info/gmp.info-2
+65ff3b414a6bc11463d2c23fac1ca1ce  data/data/com.termux/files/usr/share/info/gmp.info
+679aff70970a9264ef1b817f2809665f  data/data/com.termux/files/usr/include/gmp.h
+70e8346fc2a0a87c6dd806a0e75f2dea  data/data/com.termux/files/usr/include/gmpxx.h
+5a9d86932f6e2c3fd8391f422ae6bdba  data/data/com.termux/files/usr/lib/libgmpxx.so
+269d54c6903c49926f34f60d39e138ef  data/data/com.termux/files/usr/lib/libgmp.so
+00ddd7c2021e8a7b5f5e4d46b1a64a95  data/data/com.termux/files/usr/lib/pkgconfig/gmpxx.pc
+f0e4d981301d3ede8fd8f1943a41b281  data/data/com.termux/files/usr/lib/pkgconfig/gmp.pc

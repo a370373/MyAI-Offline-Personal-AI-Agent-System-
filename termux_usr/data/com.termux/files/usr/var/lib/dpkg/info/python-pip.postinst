@@ -1,0 +1,10 @@
+#!/data/data/com.termux/files/usr/bin/bash
+echo "pip setup..."
+pip config set --global global.disable-pip-version-check true
+if [ "$1" != "configure" ]; then
+exit 0
+fi
+if [ -f "/data/data/com.termux/files/usr/bin/py3compile" ]; then
+LD_PRELOAD='' "/data/data/com.termux/files/usr/bin/py3compile" -p "python-pip" "/data/data/com.termux/files/usr/lib/python3.14/"
+fi
+exit 0

@@ -1,0 +1,6 @@
+a48ac97a8550eff12395a2c0d6151510  data/data/com.termux/files/usr/share/doc/lsof/COPYING
+0443facddf30d6a16133fa8b641ad025  data/data/com.termux/files/usr/share/man/man8/lsof.8.gz
+997dc11dde74a33cddd0fc67bacaa776  data/data/com.termux/files/usr/include/lsof_fields.h
+67b562621508af6324e14476a05fef28  data/data/com.termux/files/usr/include/lsof.h
+ed6f9e7d1241d168003de5550dadc0bd  data/data/com.termux/files/usr/lib/liblsof.so
+94e91749025b813498696a354a0c187e  data/data/com.termux/files/usr/bin/lsof

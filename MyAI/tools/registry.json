@@ -1,0 +1,39 @@
+{
+    "tools": [
+        {
+            "module": "tools.system_info",
+            "description": "查看系統資訊",
+            "name": "system_info"
+        },
+        {
+            "module": "tools.file_manager",
+            "description": "管理檔案與資料夾",
+            "name": "file_manager"
+        },
+        {
+            "module": "tools.time_tool",
+            "description": "取得目前時間",
+            "name": "current_time"
+        },
+        {
+            "module": "tools.shell_tool",
+            "description": "執行 Termux 指令",
+            "name": "shell"
+        },
+        {
+            "module": "tools.project_scanner",
+            "description": "分析專案結構",
+            "name": "project_scanner"
+        },
+        {
+            "module": "tools.knowledge_tool",
+            "description": "搜尋專案知識",
+            "name": "knowledge_search"
+        },
+        {
+            "module": "tools.browser.browser",
+            "description": "控制 Chromium 瀏覽器，可開啟網站、搜尋、讀取、點擊、輸入",
+            "name": "browser"
+        }
+    ]
+}

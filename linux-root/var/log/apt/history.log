@@ -1,0 +1,5 @@
+
+Start-Date: 2026-07-31  01:04:31
+Commandline: apt-get install --no-install-recommends -y libnspr4 libnss3 libexpat1 libfontconfig1 libuuid1 socat
+Install: libwrap0:arm64 (7.6.q-36, automatic), libexpat1:arm64 (2.8.2-1~deb13u1), libfreetype6:arm64 (2.13.3+dfsg-1+deb13u1, automatic), libfontconfig1:arm64 (2.15.0-2.3), fontconfig-config:arm64 (2.15.0-2.3, automatic), libnss3:arm64 (2:3.110-1+deb13u4), fonts-dejavu-mono:arm64 (2.37-8, automatic), libbrotli1:arm64 (1.1.0-2+b7, automatic), socat:arm64 (1.8.0.3-1), fonts-dejavu-core:arm64 (2.37-8, automatic), libpng16-16t64:arm64 (1.6.48-1+deb13u5, automatic), libnspr4:arm64 (2:4.36-1)
+End-Date: 2026-07-31  01:04:36

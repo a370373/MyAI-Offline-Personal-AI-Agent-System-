@@ -1,0 +1,6 @@
+a359b82e98d6a86f18634a947a3847a0  data/data/com.termux/files/usr/lib/cmake/resolv_wrapper/resolv_wrapper-config-version.cmake
+500461b2259a3c0175d481a7c9aa221a  data/data/com.termux/files/usr/lib/cmake/resolv_wrapper/resolv_wrapper-config.cmake
+c71dead64146765dc7652e7aca8c998f  data/data/com.termux/files/usr/lib/libresolv_wrapper.so
+024d821b3c58b8eebbb10b0b9a0b8ca6  data/data/com.termux/files/usr/lib/pkgconfig/resolv_wrapper.pc
+1446042b3faa8af67e036dd380b3056b  data/data/com.termux/files/usr/share/doc/libresolv-wrapper/copyright
+80b5b2da19015fbc468abb011ba3337b  data/data/com.termux/files/usr/share/man/man1/resolv_wrapper.1.gz

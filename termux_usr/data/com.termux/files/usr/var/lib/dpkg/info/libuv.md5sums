@@ -1,0 +1,9 @@
+40625fb0a8692969e4e8e4b5284bf23c  data/data/com.termux/files/usr/include/uv/errno.h
+69ea88f656a7d3063fc0dde309f22ffe  data/data/com.termux/files/usr/include/uv/linux.h
+d43062c02ff56f95a0afbdfdde76c2e2  data/data/com.termux/files/usr/include/uv/threadpool.h
+94df0bd69d8a949f16f1d1d76c5daed9  data/data/com.termux/files/usr/include/uv/unix.h
+b32983558f968fe32ae7614cc31a139a  data/data/com.termux/files/usr/include/uv/version.h
+1588cfde346582f3103319213f823b49  data/data/com.termux/files/usr/include/uv.h
+b8eb82f65ea053f4edc8052d676464d0  data/data/com.termux/files/usr/lib/libuv.so
+797306ee109d6c71191bc21074718ba4  data/data/com.termux/files/usr/lib/pkgconfig/libuv.pc
+74b6f2f7818a4e3a80d03556f71b129b  data/data/com.termux/files/usr/share/doc/libuv/LICENSE

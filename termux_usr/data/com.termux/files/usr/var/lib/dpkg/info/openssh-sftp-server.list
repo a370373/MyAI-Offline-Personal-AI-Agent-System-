@@ -1,0 +1,14 @@
+/.
+/data
+/data/data
+/data/data/com.termux
+/data/data/com.termux/files
+/data/data/com.termux/files/usr
+/data/data/com.termux/files/usr/libexec
+/data/data/com.termux/files/usr/libexec/sftp-server
+/data/data/com.termux/files/usr/share
+/data/data/com.termux/files/usr/share/man
+/data/data/com.termux/files/usr/share/man/man1
+/data/data/com.termux/files/usr/share/man/man1/sftp.1.gz
+/data/data/com.termux/files/usr/share/man/man8
+/data/data/com.termux/files/usr/share/man/man8/sftp-server.8.gz

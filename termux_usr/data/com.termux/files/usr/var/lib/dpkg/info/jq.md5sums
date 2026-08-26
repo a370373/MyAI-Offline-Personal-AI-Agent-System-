@@ -1,0 +1,11 @@
+552360159e4400d0a18da40cfef6298c  data/data/com.termux/files/usr/bin/jq
+c5094f8d34a88fb524acac290310059c  data/data/com.termux/files/usr/include/jq.h
+cda254875fb2d0cd06f1f42c83975132  data/data/com.termux/files/usr/include/jv.h
+8bb0d39e22e2ac4949a48b41b7f019f4  data/data/com.termux/files/usr/lib/libjq.so
+b77c14810ff937254f9aa4ab49c68c25  data/data/com.termux/files/usr/lib/pkgconfig/libjq.pc
+ada76bbc40b250e71a3c0a71db355be6  data/data/com.termux/files/usr/share/doc/jq/AUTHORS
+cf7fcb0a1def4a7ad62c028f7d0dca47  data/data/com.termux/files/usr/share/doc/jq/COPYING
+af3b56e4cb3354ad4f9c7e3bef7c70ad  data/data/com.termux/files/usr/share/doc/jq/NEWS.md
+95132aa14b1c142042f0462880fe4912  data/data/com.termux/files/usr/share/doc/jq/README.md
+cf7fcb0a1def4a7ad62c028f7d0dca47  data/data/com.termux/files/usr/share/doc/jq/copyright
+5e816ccc494bed298a549c91059e786b  data/data/com.termux/files/usr/share/man/man1/jq.1.gz

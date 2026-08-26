@@ -1,0 +1,6 @@
+2579e5fbda3825cc1fa1d5755de45b5e  data/data/com.termux/files/usr/include/sqlite3.h
+162f3e108e18fc2306d19ca7ea4173da  data/data/com.termux/files/usr/include/sqlite3ext.h
+a0e54fa19b6a02cbc6a26aa96c33ee21  data/data/com.termux/files/usr/lib/libsqlite3.53.4.so
+d5430cfa1bb7630eaa8fddeecf6ff113  data/data/com.termux/files/usr/lib/libsqlite3.so.3.53.4
+a89cc17485c09f5c1fdcb51402c1c984  data/data/com.termux/files/usr/lib/pkgIndex.tcl
+fc36cbfbe76b331bb8147139aeddf69e  data/data/com.termux/files/usr/lib/pkgconfig/sqlite3.pc

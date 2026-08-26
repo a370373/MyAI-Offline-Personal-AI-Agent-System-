@@ -1,0 +1,23 @@
+#!/data/data/com.termux/files/usr/bin/sh
+mkdir -p "/data/data/com.termux/files/usr/var/empty"
+mkdir -p "$HOME/.ssh"
+touch "$HOME/.ssh/authorized_keys"
+chmod 700 "$HOME/.ssh"
+chmod 600 "$HOME/.ssh/authorized_keys"
+
+for a in rsa ecdsa ed25519; do
+	KEYFILE="/data/data/com.termux/files/usr/etc/ssh/ssh_host_${a}_key"
+	test ! -f "$KEYFILE" && ssh-keygen -N '' -t $a -f "$KEYFILE"
+done
+
+echo ""
+echo "If you plan to use the 'ssh-agent'"
+echo "it is recommended to run it as a service."
+echo "Run 'pkg i termux-services'"
+echo "to install the ('runit') service manager"
+echo ""
+echo "You can enable the ssh-agent service"
+echo "using 'sv-enable ssh-agent'"
+echo "You can also enable sshd to autostart"
+echo "using 'sv-enable sshd'"
+exit 0

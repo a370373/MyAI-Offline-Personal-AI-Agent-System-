@@ -1,0 +1,8 @@
+6ea40954b62f7f39b2094f03121f796f  usr/lib/aarch64-linux-gnu/libbrotlicommon.so.1.1.0
+424c1aa4a0b8c5bf66c4817d06995660  usr/lib/aarch64-linux-gnu/libbrotlidec.so.1.1.0
+987ad2b2105d47b7d64976de6e31f589  usr/lib/aarch64-linux-gnu/libbrotlienc.so.1.1.0
+ab127f8c9e4745ded26a85e9f3dafec9  usr/share/doc/libbrotli1/changelog.Debian.arm64.gz
+b9c35bd557c1286aa6e16f21f71d96f7  usr/share/doc/libbrotli1/changelog.Debian.gz
+a4ea9696130af5191858011e064568d8  usr/share/doc/libbrotli1/changelog.gz
+88a64abee92ba0e2810574d815fa4900  usr/share/doc/libbrotli1/copyright
+45a863a88b8a62194767671f7d666eab  usr/share/lintian/overrides/libbrotli1

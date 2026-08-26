@@ -1,0 +1,13 @@
+/.
+/data
+/data/data
+/data/data/com.termux
+/data/data/com.termux/files
+/data/data/com.termux/files/usr
+/data/data/com.termux/files/usr/include
+/data/data/com.termux/files/usr/include/uuid
+/data/data/com.termux/files/usr/include/uuid/uuid.h
+/data/data/com.termux/files/usr/lib
+/data/data/com.termux/files/usr/lib/libuuid.so
+/data/data/com.termux/files/usr/lib/pkgconfig
+/data/data/com.termux/files/usr/lib/pkgconfig/uuid.pc

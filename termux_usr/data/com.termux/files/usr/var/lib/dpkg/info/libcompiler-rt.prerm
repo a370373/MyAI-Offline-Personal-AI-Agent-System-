@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/sh
+find /data/data/com.termux/files/usr/lib/clang/21/lib/linux -type l ! -name "lib*-aarch64-*" -exec rm -rf "{}" \;
+exit 0

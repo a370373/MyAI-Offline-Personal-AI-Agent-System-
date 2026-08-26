@@ -1,0 +1,17 @@
+{
+    "description": "MyAI general knowledge",
+
+    "python_project": {
+        "common_files": {
+            "main.py": "通常是程式入口",
+            "config.py": "通常存放設定",
+            "requirements.txt": "通常管理套件依賴"
+        }
+    },
+
+    "agent_system": {
+        "agent_core": "通常負責 AI 任務流程控制",
+        "tool_manager": "通常負責工具管理與執行",
+        "permission": "通常負責權限控制"
+    }
+}

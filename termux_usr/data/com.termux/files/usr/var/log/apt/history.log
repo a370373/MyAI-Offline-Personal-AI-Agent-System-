@@ -1,0 +1,46 @@
+
+Start-Date: 2026-07-28  08:30:26
+Commandline: apt install git cmake clang make wget
+Install: jsoncpp:aarch64 (1.9.8, automatic), libandroid-posix-semaphore:aarch64 (0.1-4, automatic), termux-auth:aarch64 (1.5.0-1, automatic), git:aarch64 (2.55.0), lld:aarch64 (21.1.8-3, automatic), libllvm:aarch64 (21.1.8-3, automatic), krb5:aarch64 (1.22.2, automatic), libcompiler-rt:aarch64 (21.1.8-3, automatic), libxml2:aarch64 (2.15.3-2, automatic), ldns:aarch64 (1.8.4-1, automatic), wget:aarch64 (1.25.0-1), llvm:aarch64 (21.1.8-3, automatic), libdb:aarch64 (18.1.40-5, automatic), libuv:aarch64 (1.52.1, automatic), rhash:aarch64 (1.4.6-1, automatic), make:aarch64 (4.4.1-1), ndk-sysroot:aarch64 (29-2, automatic), libarchive:aarch64 (3.8.8, automatic), libexpat:aarch64 (2.8.2, automatic), openssh-sftp-server:aarch64 (10.4p1, automatic), clang:aarch64 (21.1.8-3), libresolv-wrapper:aarch64 (1.1.7-6, automatic), libedit:aarch64 (20240517-3.1-1, automatic), libffi:aarch64 (3.5.2, automatic), libuuid:aarch64 (2.42.1-4, automatic), libicu:aarch64 (78.3, automatic), cmake:aarch64 (4.4.0), openssh:aarch64 (10.4p1, automatic)
+End-Date: 2026-07-28  08:30:41
+
+Start-Date: 2026-07-28  11:08:01
+Commandline: apt install python
+Install: python-pip:aarch64 (26.1.2-1, automatic), python-ensurepip-wheels:aarch64 (3.14.6-1, automatic), gdbm:aarch64 (1.26-1, automatic), libcrypt:aarch64 (0.2-6, automatic), glib:aarch64 (2.88.2-1, automatic), pkg-config:aarch64 (0.29.2-3, automatic), python:aarch64 (3.14.6-1), ncurses-ui-libs:aarch64 (6.6.20260307+really6.5.20250830, automatic), libsqlite:aarch64 (3.53.4, automatic)
+Upgrade: ncurses:aarch64 (6.5.20240831-2, 6.6.20260307+really6.5.20250830)
+End-Date: 2026-07-28  11:08:12
+
+Start-Date: 2026-08-01  14:04:32
+Commandline: apt install which
+Install: which:aarch64 (2.25)
+End-Date: 2026-08-01  14:04:32
+
+Start-Date: 2026-08-01  15:48:30
+Commandline: apt install jq
+Install: oniguruma:aarch64 (6.9.10-1, automatic), jq:aarch64 (1.8.2)
+End-Date: 2026-08-01  15:48:30
+
+Start-Date: 2026-08-01  16:14:11
+Commandline: apt install file
+Install: file:aarch64 (5.48-1)
+End-Date: 2026-08-01  16:14:11
+
+Start-Date: 2026-08-02  08:31:49
+Commandline: apt install libarchive
+Upgrade: libarchive:aarch64 (3.8.8, 3.8.9)
+End-Date: 2026-08-02  08:31:50
+
+Start-Date: 2026-08-02  08:32:33
+Commandline: apt install bsdtar
+Install: bsdtar:aarch64 (3.8.9)
+End-Date: 2026-08-02  08:32:34
+
+Start-Date: 2026-08-02  10:20:32
+Commandline: apt install binutils
+Install: binutils:aarch64 (2.47)
+End-Date: 2026-08-02  10:20:33
+
+Start-Date: 2026-08-02  10:43:59
+Commandline: apt install proot
+Install: proot:aarch64 (5.1.107.89), libtalloc:aarch64 (2.4.3, automatic), libandroid-shmem:aarch64 (0.7, automatic)
+End-Date: 2026-08-02  10:44:00

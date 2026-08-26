@@ -1,0 +1,12 @@
+#!/data/data/com.termux/files/usr/bin/bash
+if [ -d /data/data/com.termux/files/usr/etc/pip.conf ]; then
+echo "Removing the pip setting..."
+rm -fr /data/data/com.termux/files/usr/etc/pip.conf
+fi
+if [ "$1" != "remove" ]; then
+exit 0
+fi
+if [ -f "/data/data/com.termux/files/usr/bin/py3clean" ]; then
+LD_PRELOAD='' "/data/data/com.termux/files/usr/bin/py3clean" -p "python-pip"
+fi
+exit 0

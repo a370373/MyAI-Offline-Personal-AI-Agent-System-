@@ -1,0 +1,15 @@
+034b4e369944ad4b52a68368f1cf98b8  data/data/com.termux/files/usr/share/doc/libgcrypt/LICENSES
+4fbd65380cdd255951079008b364516c  data/data/com.termux/files/usr/share/doc/libgcrypt/COPYING.LIB
+b234ee4d69f5fce4486a80fdaf4a4263  data/data/com.termux/files/usr/share/doc/libgcrypt/COPYING
+1388ab9f65c5c14270a044ae368e57d5  data/data/com.termux/files/usr/share/aclocal/libgcrypt.m4
+135c405d4b5ef0351b60b564a2d9a98f  data/data/com.termux/files/usr/share/man/man1/hmac256.1.gz
+c3c28663ef52ec037668b3b7600fdc09  data/data/com.termux/files/usr/share/info/gcrypt.info
+fe43985850e0689aeb9d5a938417369f  data/data/com.termux/files/usr/share/info/gcrypt.info-1
+b34a132d44ee52d7d2fcd5d7f8ee2ce6  data/data/com.termux/files/usr/share/info/gcrypt.info-2
+a58ec55900349a568d87b41b6146d85f  data/data/com.termux/files/usr/include/gcrypt.h
+afeb5f5f7fb5d617124429fc543fb260  data/data/com.termux/files/usr/lib/libgcrypt.so
+f68e253e0e25f63c42b440740959df54  data/data/com.termux/files/usr/lib/pkgconfig/libgcrypt.pc
+ca9891eb46022fea3c3f70e9b21e34ff  data/data/com.termux/files/usr/bin/libgcrypt-config
+7c7d446a53f03f166b1044b8a4d54c84  data/data/com.termux/files/usr/bin/mpicalc
+ac9047072f97bea12b1ac97a91fecbe4  data/data/com.termux/files/usr/bin/hmac256
+8bb049386d6d1abace16a7497ec85142  data/data/com.termux/files/usr/bin/dumpsexp

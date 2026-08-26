@@ -1,0 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+glib-compile-schemas "/data/data/com.termux/files/usr/share/glib-2.0/schemas"
+
+exit 0

@@ -1,0 +1,13 @@
+82c5fc0197418cefc49e0f7bc8460427  data/data/com.termux/files/usr/bin/gdbm_dump
+e6c6812eda132bab26c39d35c137e360  data/data/com.termux/files/usr/bin/gdbm_load
+2b79813f1feddae19e567dc754b68486  data/data/com.termux/files/usr/bin/gdbmtool
+f0c089a14083ab13ce44318b16ced7a6  data/data/com.termux/files/usr/include/dbm.h
+c2918c96679e28b08777cae4975b1a29  data/data/com.termux/files/usr/include/gdbm.h
+c8738efca70680598ccdb59823613294  data/data/com.termux/files/usr/include/ndbm.h
+2c254917533a6cc77812263328f1d96e  data/data/com.termux/files/usr/lib/libgdbm.so
+004753a368fd28957dfa5bbed0e0ab95  data/data/com.termux/files/usr/lib/libgdbm_compat.so
+b7a3087a253cfc39ad9d0f3ea6baa015  data/data/com.termux/files/usr/share/info/gdbm.info
+a2cdefec49292841d35199f9020b1b52  data/data/com.termux/files/usr/share/man/man1/gdbm_dump.1.gz
+0a5ad7d293b490991e3edb80783ddf79  data/data/com.termux/files/usr/share/man/man1/gdbm_load.1.gz
+48cd916e021dfe6efa11e3021f6380e6  data/data/com.termux/files/usr/share/man/man1/gdbmtool.1.gz
+be3c9144efd2353093df8c70316785e6  data/data/com.termux/files/usr/share/man/man3/gdbm.3.gz

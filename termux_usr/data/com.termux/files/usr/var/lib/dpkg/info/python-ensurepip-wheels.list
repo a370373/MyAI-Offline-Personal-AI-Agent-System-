@@ -1,0 +1,11 @@
+/.
+/data
+/data/data
+/data/data/com.termux
+/data/data/com.termux/files
+/data/data/com.termux/files/usr
+/data/data/com.termux/files/usr/lib
+/data/data/com.termux/files/usr/lib/python3.14
+/data/data/com.termux/files/usr/lib/python3.14/ensurepip
+/data/data/com.termux/files/usr/lib/python3.14/ensurepip/_bundled
+/data/data/com.termux/files/usr/lib/python3.14/ensurepip/_bundled/pip-26.1.2-py3-none-any.whl

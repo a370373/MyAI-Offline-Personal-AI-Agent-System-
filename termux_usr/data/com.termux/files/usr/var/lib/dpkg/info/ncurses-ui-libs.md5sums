@@ -1,0 +1,6 @@
+28de90715a0c3231f67c84aa8165086b  data/data/com.termux/files/usr/lib/libformw.so.6.5
+82a1081108c58058fd7e4d22a786d187  data/data/com.termux/files/usr/lib/libmenuw.so.6.5
+2013dcce3dbcb9951789f12f4b186f64  data/data/com.termux/files/usr/lib/libpanelw.so.6.5
+b7ab2fbeb0f0e251fe6c114d15d93163  data/data/com.termux/files/usr/lib/pkgconfig/formw.pc
+6da3650df7ba8db395a1962795549d81  data/data/com.termux/files/usr/lib/pkgconfig/menuw.pc
+afba14abd1464639bb7f23fa3ee52e4a  data/data/com.termux/files/usr/lib/pkgconfig/panelw.pc

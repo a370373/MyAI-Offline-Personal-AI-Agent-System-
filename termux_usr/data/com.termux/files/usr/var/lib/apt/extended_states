@@ -1,0 +1,136 @@
+Package: jsoncpp
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libandroid-posix-semaphore
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: termux-auth
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: lld
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libllvm
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: krb5
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libcompiler-rt
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libxml2
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: ldns
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: llvm
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libdb
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libuv
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: rhash
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: ndk-sysroot
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libarchive
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libexpat
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: openssh-sftp-server
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libresolv-wrapper
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libedit
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libffi
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libuuid
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libicu
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: openssh
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: python-pip
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: python-ensurepip-wheels
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: gdbm
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libcrypt
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: glib
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: pkg-config
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: ncurses-ui-libs
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libsqlite
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: oniguruma
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libtalloc
+Architecture: aarch64
+Auto-Installed: 1
+
+Package: libandroid-shmem
+Architecture: aarch64
+Auto-Installed: 1
+
