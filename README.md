@@ -753,7 +753,7 @@ MyAI 不把模型當作整個產品。
 
 ---
 
-## 🌍 Platform Independence — 不綁死平台
+## 20. 🌍 Platform Independence — 不綁死平台
 
 MyAI 的核心架構與底層 Runtime 分離。
 
@@ -767,6 +767,16 @@ MyAI 的核心架構與底層 Runtime 分離。
 - 🪟 Windows
 - 🍎 macOS
 - 🐧 Linux
+
+
+不同平台可以替換平台相關元件：
+
+- Runtime
+- Native Binary
+- Chromium
+- System Dependencies
+- AI Runtime
+- Platform-specific Tools
 
 而 MyAI 的核心 Agent、Memory、Context、Tool Framework 與 Security 架構可以維持相對獨立。
 
@@ -811,14 +821,6 @@ macOS
        ▼          ▼          ▼
     Android     Linux     Windows / macOS
 
-## 不同平台可以替換：
-
-- Runtime
-- Binary
-- Browser
-- Platform-specific dependencies
-
-而不用重新設計整個 Agent。
 
 ---
 
@@ -1088,6 +1090,12 @@ MyAI 是一個持續演進中的開源專案。
 - 緩慢更新 ＆ 除錯
 - 純手機Termux 開發👀
 - 持續開發中…
+
+---
+## 👀作品 & 產品 集
+
+- [RWM- 1:1 Real World Minecraft](https://github.com/a370373/RWM-Real-World-Minecraft)
+- 持續增加中…
 
 ---
 
