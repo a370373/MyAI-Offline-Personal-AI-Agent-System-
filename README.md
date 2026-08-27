@@ -1089,14 +1089,15 @@ MyAI 是一個持續演進中的開源專案。
 - 獨立開發 ＆ AI協作
 - 緩慢更新 ＆ 除錯
 - 純手機Termux 開發👀
-- 持續開發中…
+- 持續開發中…👀
 
 ---
 
 ## 👀作品 & 產品 集
 
-- [RWM- 1:1 Real World Minecraft](https://github.com/a370373/RWM-Real-World-Minecraft)
-- 持續增加中…
+- [RWM-1:1 Real World Minecraft](https://github.com/a370373/RWM-Real-World-Minecraft)
+- [MyAI-Offline Personal AI Agent System](https://github.com/a370373/MyAI-Offline-Personal-AI-Agent-System-/tree/main)
+- 持續增加中…👀
 
 ---
 
