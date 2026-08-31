@@ -1099,6 +1099,7 @@ MyAI 是一個持續演進中的開源專案。
 
 - [RWM-1:1 Real World Minecraft](https://github.com/a370373/RWM-Real-World-Minecraft)
 - [MyAI-Offline Personal AI Agent System](https://github.com/a370373/MyAI-Offline-Personal-AI-Agent-System-/tree/main)
+- [WCL - Web Clone Lab](https://github.com/a370373/web-clone-lab/)
 - 持續增加中…👀
 
 ---
