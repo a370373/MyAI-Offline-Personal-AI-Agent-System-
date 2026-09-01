@@ -1,4 +1,4 @@
-🤖 MyAI — Offline Personal AI Agent System
+## 🤖 MyAI — Offline Personal AI Agent System
 
 «“An offline-first private AI Agent system running on your personal device.”»
 
@@ -31,7 +31,7 @@ Give it memory, tools, and an environment where it can work. 🤖”»
 
 ---
 
-🎯 1. Product Identity
+## 🎯 1. Product Identity
 
 MyAI is positioned as:
 
@@ -55,7 +55,7 @@ It is:
 
 ---
 
-🧠 2. Overall Architecture
+## 🧠 2. Overall Architecture
 
                      👤 User
                         │
@@ -99,7 +99,7 @@ It is:
 
 ---
 
-📴 3. Offline-First
+## 📴 3. Offline-First
 
 The core design philosophy of MyAI is:
 
@@ -123,7 +123,7 @@ The network is not a core dependency of MyAI.
 
 ---
 
-🌐 4. Network Tools — Extended Capabilities When Online
+## 🌐 4. Network Tools — Extended Capabilities When Online
 
 MyAI is not designed to “never access the Internet”.
 
@@ -165,7 +165,7 @@ The network is an extension of capabilities, not a core dependency.
 
 ---
 
-🤖 5. Agent Core — The Brain of AI
+## 🤖 5. Agent Core — The Brain of AI
 
 The Agent Core is responsible for the entire task execution process.
 
@@ -214,7 +214,7 @@ Basic flow:
 
 ---
 
-🧠 6. Local AI Engine — Local AI
+## 🧠 6. Local AI Engine — Local AI
 
 MyAI treats the AI model as a replaceable reasoning engine.
 
@@ -255,7 +255,7 @@ Users can choose a model suitable for their own environment.
 
 ---
 
-🛠️ 7. Tool Framework — The Hands and Feet of AI
+## 🛠️ 7. Tool Framework — The Hands and Feet of AI
 
 If:
 
@@ -277,7 +277,7 @@ Including:
 
 ---
 
-💻 Shell / Command Tool
+## 💻 Shell / Command Tool
 
 Allows the Agent to operate the Runtime.
 
@@ -299,7 +299,7 @@ When permissions allow, it can:
 
 ---
 
-📁 File Tool
+## 📁 File Tool
 
 Allows the Agent to operate files.
 
@@ -316,7 +316,7 @@ This allows the Agent to directly understand its working environment and project
 
 ---
 
-🌐 Browser Tool
+## 🌐 Browser Tool
 
 Provides Browser Automation capabilities.
 
@@ -334,7 +334,7 @@ Including:
 
 ---
 
-📚 Knowledge Tool
+## 📚 Knowledge Tool
 
 Manages:
 
@@ -346,7 +346,7 @@ Manages:
 
 ---
 
-🔍 Project Scanner
+## 🔍 Project Scanner
 
 Allows the Agent to inspect projects:
 
@@ -372,7 +372,7 @@ Can be used for:
 
 ---
 
-🌐 8. Browser Agent — AI Browser Capabilities
+## 🌐 8. Browser Agent — AI Browser Capabilities
 
 Browser Agent is an important subsystem of MyAI.
 
@@ -408,7 +408,7 @@ It is:
 
 ---
 
-🌐 9. Chromium Runtime
+## 🌐 9. Chromium Runtime
 
 MyAI can work with an independent Chromium "headless-shell" Runtime.
 
@@ -418,7 +418,7 @@ This allows Browser Agent to use a controlled Chromium execution environment wit
 
 ---
 
-🐧 10. Linux RootFS — Chromium Runtime Environment
+## 🐧 10. Linux RootFS — Chromium Runtime Environment
 
 MyAI includes a Linux RootFS.
 
@@ -443,7 +443,7 @@ Concept:
 
 ---
 
-📱 11. Termux Runtime
+## 📱 11. Termux Runtime
 
 Android deployment can use Termux as the underlying Runtime.
 
@@ -465,7 +465,7 @@ Termux is more like:
 
 ---
 
-💾 12. Memory System — AI Memory
+## 💾 12. Memory System — AI Memory
 
 MyAI separates Memory from the current Task Context.
 
@@ -501,7 +501,7 @@ Concept:
 
 ---
 
-🧩 13. Context System — Current State
+## 🧩 13. Context System — Current State
 
 Context stores what the Agent is currently doing.
 
@@ -520,7 +520,7 @@ Memory is responsible for longer-term information storage.
 
 ---
 
-💬 14. Conversation System — Conversation & Self-Dialogue
+## 💬 14. Conversation System — Conversation & Self-Dialogue
 
 MyAI can communicate not only with the user.
 
@@ -573,7 +573,7 @@ Otherwise:
 
 ---
 
-🛡️ 15. Security Layer — AI Cannot Just Do Whatever It Wants
+## 🛡️ 15. Security Layer — AI Cannot Just Do Whatever It Wants
 
 MyAI provides:
 
@@ -605,7 +605,7 @@ Especially when the Agent has Shell, File, Browser, and Runtime capabilities:
 
 ---
 
-🔧 16. Self-Repair — Self-Inspection & Recovery
+## 🔧 16. Self-Repair — Self-Inspection & Recovery
 
 MyAI's Tool + Source Inspection + Execution capabilities allow it to move toward Self-Repair.
 
@@ -638,7 +638,7 @@ In other words:
 
 ---
 
-🧬 17. Self-Extension — Creating New Tools
+## 🧬 17. Self-Extension — Creating New Tools
 
 The extensible design of the Tool Framework theoretically allows MyAI to support:
 
@@ -672,7 +672,7 @@ It can also move toward:
 
 ---
 
-🚀 18. Self-Upgrade — Self-Improvement
+## 🚀 18. Self-Upgrade — Self-Improvement
 
 The long-term direction of MyAI does not necessarily have to be:
 
@@ -724,7 +724,7 @@ Safe Self-Upgrade should include:
 
 ---
 
-🧠 19. Replaceable Brain — Replaceable AI
+## 🧠 19. Replaceable Brain — Replaceable AI
 
 MyAI does not treat the model as the entire product.
 
@@ -747,7 +747,7 @@ Different models can be selected in the future according to the device and requi
 
 ---
 
-🌍 20. Platform Independence — Not Locked to One Platform
+## 🌍 20. Platform Independence — Not Locked to One Platform
 
 MyAI separates its core architecture from the underlying Runtime.
 
@@ -816,7 +816,7 @@ Only the underlying Runtime and platform-specific components need to be adapted.
 
 ---
 
-💾 21. Backup & Migration
+## 💾 21. Backup & Migration
 
 MyAI can separate the Core from the Runtime.
 
@@ -843,7 +843,7 @@ This allows the environment to support:
 
 ---
 
-🗂️ 22. Repository Structure
+## 🗂️ 22. Repository Structure
 
 MyAI-Offline-Personal-AI-Agent-System-
 │
@@ -869,7 +869,7 @@ MyAI-Offline-Personal-AI-Agent-System-
 
 ---
 
-🏗️ 23. System Stack
+## 🏗️ 23. System Stack
 
                 👤 USER
                     │
@@ -899,7 +899,7 @@ MyAI-Offline-Personal-AI-Agent-System-
 
 ---
 
-🔥 24. What Makes MyAI Different?
+## 🔥 24. What Makes MyAI Different?
 
 MyAI does not simply combine:
 
@@ -943,7 +943,7 @@ Improve itself»
 
 ---
 
-🚀 25. Future Direction
+## 🚀 25. Future Direction
 
 MyAI does not have to be limited to:
 
@@ -977,7 +977,7 @@ Ideal State:
 
 ---
 
-⚠️ 26. Important Notes
+## ⚠️ 26. Important Notes
 
 MyAI's Self-Repair, Self-Extension, Self-Upgrade, and related directions represent:
 
@@ -1001,7 +1001,7 @@ Any capability involving self-modification or high-risk operations should be con
 
 ---
 
-📦 27. Requirements
+## 📦 27. Requirements
 
 MyAI is a modular system.
 
@@ -1022,7 +1022,7 @@ MyAI Core is designed not to be permanently tied to a single platform or a singl
 
 ---
 
-📊 28. Project Status
+## 📊 28. Project Status
 
 MyAI is an open-source project that continues to evolve.
 
@@ -1050,7 +1050,7 @@ Some capabilities are still experimental, under development, or continuously evo
 
 ---
 
-🎯 29. Philosophy
+## 🎯 29. Philosophy
 
 «“AI should not only be able to chat.
 
