@@ -1,10 +1,10 @@
-## 🤖 MyAI — Offline Personal AI Agent System
+# 🤖 MyAI — Offline Personal AI Agent System
 
 «運行於個人裝置上的離線私人 AI Agent 系統。»
 
 MyAI 不是單純的聊天機器人。
 
-# 它是一個以 Offline-First（離線優先） 為核心設計的私人 AI Agent 系統。
+**它是一個以 Offline-First（離線優先） 為核心設計的私人 AI Agent 系統。**
 
 MyAI 將：
 
@@ -57,6 +57,7 @@ MyAI 的核心不是「聊天」。
 
 ## 🧠 2. Overall Architecture — 整體架構
 
+```
                          👤 User
                            │
                            ▼
@@ -97,6 +98,7 @@ MyAI 的核心不是「聊天」。
                                         │
                                         ▼
                                    🌐 Chromium
+```
 
 ---
 
@@ -106,7 +108,7 @@ MyAI 的核心設計理念是：
 
 «Offline First，而不是 Cloud First。»
 
-## 在沒有網路的情況下，MyAI 的核心能力仍然可以在本地運作。
+**在沒有網路的情況下，MyAI 的核心能力仍然可以在本地運作。**
 
 包括：
 
@@ -139,6 +141,7 @@ MyAI 並不是「永遠不能上網」。
 
 核心邏輯：
 
+```
                  👤 User
                     │
                     ▼
@@ -155,6 +158,7 @@ MyAI 並不是「永遠不能上網」。
               └─────────┬──────────┘
                         ▼
                      Result
+```
 
 因此：
 
@@ -185,6 +189,7 @@ Agent Core 負責整個任務執行流程。
 
 基本流程：
 
+```
 👤 User Request
        ↓
 🔍 Task Analysis
@@ -212,6 +217,7 @@ Agent Core 負責整個任務執行流程。
              │
              ▼
           Retry
+```
 
 ---
 
@@ -228,6 +234,7 @@ MyAI 本身不綁定特定模型。
 
 概念：
 
+```
               🤖 MyAI
                  │
                  ▼
@@ -238,6 +245,7 @@ MyAI 本身不綁定特定模型。
                  │
                  ▼
              GGUF Model
+```
 
 模型可以依照使用者裝置自行選擇。
 
@@ -351,6 +359,7 @@ MyAI 的 Tool Framework 負責管理 Agent 能使用的能力。
 
 讓 Agent 可以檢查專案：
 
+```
 📁 Project
    ↓
 🔍 Scan
@@ -362,6 +371,7 @@ MyAI 的 Tool Framework 負責管理 Agent 能使用的能力。
 🧠 Analysis
    ↓
 🤖 Agent Understanding
+```
 
 可用於：
 
@@ -379,6 +389,7 @@ Browser Agent 是 MyAI 的重要子系統。
 
 架構：
 
+```
 🤖 MyAI
    ↓
 🌐 Browser Agent
@@ -390,6 +401,7 @@ Browser Agent 是 MyAI 的重要子系統。
 🔌 CDP
    ↓
 🌐 Chromium
+```
 
 Browser Agent 可以根據：
 
@@ -433,6 +445,7 @@ MyAI 包含 Linux RootFS。
 
 概念：
 
+```
 📱 Android
    │
    ▼
@@ -443,6 +456,7 @@ MyAI 包含 Linux RootFS。
    │
    ▼
 🌐 Chromium
+```
 
 ---
 
@@ -460,7 +474,7 @@ Runtime 可以提供：
 - 🛠️ Development Tools
 - 🧠 Local AI Runtime
 
-# MyAI Core 不需要把整個 Agent 架構寫死在 Termux 裡。
+**MyAI Core 不需要把整個 Agent 架構寫死在 Termux 裡。**
 
 Termux 更像是：
 
@@ -492,6 +506,7 @@ MyAI 將 Memory 與目前 Task Context 分開。
 
 概念：
 
+```
              💾 Memory
                  │
       ┌──────────┼──────────┐
@@ -501,6 +516,7 @@ MyAI 將 Memory 與目前 Task Context 分開。
       └──────────┼──────────┘
                  ▼
              Knowledge
+```
 
 ---
 
@@ -533,6 +549,7 @@ MyAI 不只可以與使用者對話。
 
 例如：
 
+```
 🤖 MyAI
    ↓
 「我需要檢查 Browser。」
@@ -550,6 +567,7 @@ MyAI 不只可以與使用者對話。
 「我需要進一步測試。」
    ↓
         ↻
+```
 
 這可以用於：
 
@@ -590,6 +608,7 @@ MyAI 擁有：
 
 概念：
 
+```
 🤖 Agent Action
        ↓
 🔍 Capability Check
@@ -602,6 +621,7 @@ MyAI 擁有：
  │      │      │
  ▼      ▼      ▼
 執行   👤確認   ❌拒絕
+```
 
 尤其當 Agent 擁有 Shell、File、Browser 與 Runtime 能力時：
 
@@ -615,6 +635,7 @@ MyAI 的 Tool + Source Inspection + Execution 能力，使它可以朝 Self-Repa
 
 理想流程：
 
+```
 👀 Inspect
    ↓
 🔍 Diagnose
@@ -635,6 +656,7 @@ MyAI 的 Tool + Source Inspection + Execution 能力，使它可以朝 Self-Repa
  │              │
  ▼              ▼
 完成          Recovery
+```
 
 也就是：
 
@@ -650,6 +672,7 @@ Tool Framework 的可擴充設計，使 MyAI 理論上可以進一步支援：
 
 例如：
 
+```
 🤖 發現能力缺口
         ↓
 🧠 設計新 Tool
@@ -665,6 +688,7 @@ Tool Framework 的可擴充設計，使 MyAI 理論上可以進一步支援：
 📦 Register
         ↓
 🛠️ 使用新能力
+```
 
 因此未來 MyAI 不一定只能：
 
@@ -682,6 +706,7 @@ Tool Framework 的可擴充設計，使 MyAI 理論上可以進一步支援：
 
 MyAI 的長期方向不一定是：
 
+```
 V1
  ↓
 V2
@@ -689,9 +714,11 @@ V2
 V3
  ↓
 V4
+```
 
 而可以是：
 
+```
 🔍 Self Inspection
         ↓
 🧠 Find Weakness
@@ -711,6 +738,7 @@ V4
 💾 Checkpoint
         ↓
 ↩️ Rollback if Failed
+```
 
 也就是：
 
@@ -740,6 +768,7 @@ MyAI 不把模型當作整個產品。
 
 因此可以形成：
 
+```
                  🤖 MyAI
                     │
                     ▼
@@ -748,12 +777,13 @@ MyAI 不把模型當作整個產品。
           ┌─────────┼─────────┐
           ▼         ▼         ▼
        Model A   Model B   Model C
+```
 
 未來可以依照裝置與需求更換不同模型。
 
 ---
 
-## 20. 🌍 Platform Independence — 不綁死平台
+## 🌍 20. Platform Independence — 不綁死平台
 
 MyAI 的核心架構與底層 Runtime 分離。
 
@@ -767,7 +797,6 @@ MyAI 的核心架構與底層 Runtime 分離。
 - 🪟 Windows
 - 🍎 macOS
 - 🐧 Linux
-
 
 不同平台可以替換平台相關元件：
 
@@ -790,6 +819,7 @@ MyAI 的核心架構與底層 Runtime 分離。
 
 例如：
 
+```
 Android
   └── Termux Runtime
 
@@ -801,6 +831,7 @@ Windows
 
 macOS
   └── macOS Runtime
+```
 
 平台不同，不代表 MyAI 必須重新設計。
 
@@ -808,6 +839,7 @@ macOS
 
 «同一個 Agent Core，不同的平台 Runtime。 🌍»
 
+```
              🤖 MyAI Core
                   │
        ┌──────────┼──────────┐
@@ -820,7 +852,7 @@ macOS
        ┌──────────┼──────────┐
        ▼          ▼          ▼
     Android     Linux     Windows / macOS
-
+```
 
 ---
 
@@ -828,6 +860,7 @@ macOS
 
 MyAI 可以將核心與 Runtime 拆分。
 
+```
 🤖 MyAI
 │
 ├── Core
@@ -841,6 +874,7 @@ MyAI 可以將核心與 Runtime 拆分。
 ├── Termux Runtime
 ├── Linux RootFS
 └── Chromium Runtime
+```
 
 這使環境可以進行：
 
@@ -853,6 +887,7 @@ MyAI 可以將核心與 Runtime 拆分。
 
 ## 🗂️ 22. Repository Structure
 
+```
 MyAI-Offline-Personal-AI-Agent-System-
 │
 ├── 🤖 MyAI/
@@ -876,11 +911,13 @@ MyAI-Offline-Personal-AI-Agent-System-
 ├── 🐧 linux-root/
 │
 └── 📱 termux_usr/
+```
 
 ---
 
 ## 🏗️ 23. System Stack
 
+```
                     👤 USER
                        │
                        ▼
@@ -906,6 +943,7 @@ MyAI-Offline-Personal-AI-Agent-System-
                                                  │
                                                  ▼
                                            📱 Host Runtime
+```
 
 ---
 
@@ -927,6 +965,7 @@ MyAI 並不是把：
 
 走向：
 
+```
 「理解問題」
       ↓
 「制定計畫」
@@ -938,9 +977,11 @@ MyAI 並不是把：
 「修正錯誤」
       ↓
 「完成任務」
+```
 
 更進一步：
 
+```
 使用能力
   ↓
 檢查自己
@@ -950,6 +991,7 @@ MyAI 並不是把：
 建立新能力
   ↓
 改善自己
+```
 
 ---
 
@@ -961,6 +1003,7 @@ MyAI 沒有必要被限制成：
 
 更有趣的方向是：
 
+```
 🧠 Think
    ↓
 🛠️ Act
@@ -980,8 +1023,9 @@ MyAI 沒有必要被限制成：
 🚀 Improve
    ↓
         ↻
+```
 
-# 理想狀態：
+**理想狀態：**
 
 «讓 MyAI 成為一個可以持續擴充、維護與改善自身能力的 Agent System。»
 
@@ -1000,7 +1044,7 @@ MyAI 的 Self-Repair、Self-Extension、Self-Upgrade 等方向，代表的是：
 - ❌ AI 能無限制修改系統
 - ❌ AI 一定能自行提升智慧
 
-# 任何涉及自我修改或高風險操作的能力，都應該受到：
+**任何涉及自我修改或高風險操作的能力，都應該受到：**
 
 - 🛡️ Permission
 - 🧪 Testing
@@ -1017,7 +1061,7 @@ MyAI 的 Self-Repair、Self-Extension、Self-Upgrade 等方向，代表的是：
 
 MyAI 是一個模組化系統。
 
-# 使用者需要依照自己的平台準備相應 Runtime。
+**使用者需要依照自己的平台準備相應 Runtime。**
 
 Local AI 部分需要：
 
@@ -1032,7 +1076,7 @@ Compatible GGUF Model
 - Browser
 - Dependencies
 
-# MyAI Core 的設計目標是不將自身永久綁定於單一平台或單一模型。
+**MyAI Core 的設計目標是不將自身永久綁定於單一平台或單一模型。**
 
 ---
 
