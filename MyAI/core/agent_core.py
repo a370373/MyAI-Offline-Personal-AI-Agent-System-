@@ -26,7 +26,9 @@ from context_manager import (
     get_pending_action,
     set_pending_action,
     clear_pending_action,
-    build_prompt_context
+    build_prompt_context,
+    get_messages,
+    add_message
 )
 
 from core.knowledge_manager import get_knowledge
@@ -76,7 +78,7 @@ CONFIRM_WORDS = [
 
 
 
-def build_context(user_input):
+def build_context(user_input, conversation_history=None):
 
     context = ""
 
@@ -113,6 +115,15 @@ def build_context(user_input):
 """
 
 
+    # 最近對話：只注入當前訊息之前的歷史
+    if conversation_history:
+        context += "\n最近對話紀錄：\n\n"
+
+        for message in conversation_history[-6:]:
+            role = message.get("role", "unknown")
+            content = message.get("content", "")
+            context += f"{role}:\n{content}\n\n"
+
     if knowledge:
 
         context += f"""
@@ -146,11 +157,22 @@ def handle(user_input, runtime=None):
     print(user_input)
 
 
-    # memory
+    # 取得上一輪對話快照
+    conversation_history = get_messages()
+
+    # 保存使用者訊息
     process_memory(
         "user",
         user_input
     )
+
+    # 確保重要訊息也進入短期對話歷史
+    add_message("user", user_input)
+
+    # 統一保存 AI 最終回覆
+    def finish(response):
+        add_message("assistant", str(response))
+        return response
 
 
     # advanced short context
@@ -160,14 +182,16 @@ def handle(user_input, runtime=None):
         )
 
         if follow_context:
-            return format_browser_result(
-                follow_context["data"].get(
-                    "result",
-                    {}
-                ),
-                follow_context["data"].get(
-                    "observation",
-                    {}
+            return finish(
+                format_browser_result(
+                    follow_context["data"].get(
+                        "result",
+                        {}
+                    ),
+                    follow_context["data"].get(
+                        "observation",
+                        {}
+                    )
                 )
             )
 
@@ -228,22 +252,20 @@ def handle(user_input, runtime=None):
             )
 
 
-            return interpreter.explain(
-                {
-                    "success": reflection.get(
-                        "success",
-                        False
-                    ),
-
-                    "error": reflection.get(
-                        "error"
-                    ),
-
-                    "dom": observation.get(
-                        "dom_after_action",
-                        {}
-                    )
-                }
+            return finish(
+                interpreter.explain(
+                    {
+                        "success": reflection.get(
+                            "success",
+                            False
+                        ),
+                        "error": reflection.get("error"),
+                        "dom": observation.get(
+                            "dom_after_action",
+                            {}
+                        )
+                    }
+                )
             )
 
     except Exception as e:
@@ -261,7 +283,7 @@ def handle(user_input, runtime=None):
             "可用工具"
         ]
     ):
-        return format_capabilities()
+        return finish(format_capabilities())
 
 
 
@@ -318,7 +340,7 @@ def handle(user_input, runtime=None):
                     tool
                 )
 
-                return (
+                return finish(
                     "此操作需要使用者確認：\n"
                     +
                     permission.get(
@@ -425,20 +447,15 @@ def handle(user_input, runtime=None):
         )
 
 
-        process_memory(
-            "assistant",
-            final
-        )
-
-
-        return final
+        return finish(final)
 
 
 
     # normal LLM
 
     context = build_context(
-        user_input
+        user_input,
+        conversation_history
     )
 
 
@@ -465,7 +482,7 @@ def handle(user_input, runtime=None):
             )
 
 
-            return (
+            return finish(
                 response
                 +
                 "\n\n等待執行確認。"
@@ -480,5 +497,5 @@ def handle(user_input, runtime=None):
         )
 
 
-    return response
+    return finish(response)
 
