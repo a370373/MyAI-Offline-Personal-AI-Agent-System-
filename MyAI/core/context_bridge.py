@@ -8,9 +8,14 @@ from context_manager import (
 
 def inject_context(user_input, extra=None):
 
-    context = build_prompt_context(
-        user_input
-    )
+    context = build_prompt_context()
+
+    if user_input:
+        context += (
+            "\n目前使用者訊息：\n"
+            + str(user_input)
+            + "\n"
+        )
 
     if extra:
 
