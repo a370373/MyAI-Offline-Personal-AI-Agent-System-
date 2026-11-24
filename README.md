@@ -1095,6 +1095,13 @@ MyAI 是一個持續演進中的開源專案。
 
 ---
 
+## 🏆 生態合作與展示 / Ecosystem & Showcase ✨ 官方特邀入駐 / Featured Showcase
+
+# 本專案受邀進駐由 熾光時代、香港科技大學（廣州）、紫金山實驗室
+# 等機構協辦的 Agent2048 全球智能體大賽平台，擔任 項目進駐方嘉賓
+
+---
+
 ## 👀作品 & 產品 集
 
 - [MyDNS](https://github.com/a370373/MyDNS/tree/main)
@@ -1106,12 +1113,6 @@ MyAI 是一個持續演進中的開源專案。
 - [MyAI-Offline Personal AI Agent System](https://github.com/a370373/MyAI-Offline-Personal-AI-Agent-System-/tree/main)
 - [WCL - Web Clone Lab](https://github.com/a370373/web-clone-lab/)
 - 持續增加中…👀
-
----
-## 🏆 生態合作與展示 / Ecosystem & Showcase ✨ 官方特邀入駐 / Featured Showcase
-
-# 本專案受邀進駐由 熾光時代、香港科技大學（廣州）、紫金山實驗室
-# 等機構協辦的 Agent2048 全球智能體大賽平台，擔任 項目進駐方嘉賓
 
 ---
 
