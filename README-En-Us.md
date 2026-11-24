@@ -1086,6 +1086,12 @@ Then see what it can do. 🚀”»
 
 ---
 
+## 🏆 Ecosystem Cooperation and Showcase / Ecosystem & Showcase ✨ Official Invitation / Featured Showcase
+
+# This project has been invited to participate in the Agent2048 Global Intelligent Agent Competition platform, co-organized by Chiguang Times, Hong Kong University of Science and Technology (Guangzhou), Purple Mountain Laboratories, and other institutions, serving as a guest project representative.
+
+---
+
 ## 👀 Portfolio & Products
 
 - [MyAI - Offline Personal AI Agent System](https://github.com/a370373/MyAI-Offline-Personal-AI-Agent-System-/tree/main)
@@ -1097,6 +1103,7 @@ Then see what it can do. 🚀”»
 - Continuously adding more...👀
 
 ---
+
 
 ## 🤖 AI Collaboration
 
