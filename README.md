@@ -1089,8 +1089,8 @@ MyAI 是一個持續演進中的開源專案。
 
 - 本專案受邀進駐由 熾光時代、香港科技大學（廣州）、紫金山實驗室等機構協辦的 Agent2048 全球智能體大賽平台，擔任 項目進駐方嘉賓
 
-官方網站：https://agent2048.com/zh
-專案網址：https://agent2048.com/zh/projects/s1s53knto6pr
+- 官方網站 https://agent2048.com/zh
+- 專案網址：https://agent2048.com/zh/projects/s1s53knto6pr
 ---
 
 ## 📬 聯繫創作者
