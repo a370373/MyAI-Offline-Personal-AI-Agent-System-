@@ -4,11 +4,12 @@
 
 MyAI 不是單純的聊天機器人。
 
-# 它是一個以 Offline-First（離線優先） 為核心設計的私人 AI Agent 系統。
+# 它是一個以 Offline-First（離線優先）為核心設計的私人 AI Agent 系統。
 
 MyAI 將：
 
 - 🧠 Local AI
+- 🧬 MoE Expert Routing
 - 🤖 Agent Core
 - 🛠️ Tool Framework
 - 💾 Memory
@@ -45,6 +46,7 @@ MyAI 的定位：
 - 🛠️ AI Tool Execution Platform
 - 🌐 Browser Automation Agent
 - 💾 Memory / Knowledge System
+- 🧬 Multi-Model Expert Routing System
 - 🔧 可擴充 Agent Framework
 
 MyAI 的核心不是「聊天」。
@@ -70,16 +72,13 @@ MyAI 的核心不是「聊天」。
        ▼                   ▼                   ▼
    🧠 Local AI          💾 Memory          🛠️ Tools
        │                   │                   │
-       │                   │        ┌──────────┼──────────┐
-       │                   │        ▼          ▼          ▼
+       ▼                   │        ┌──────────┼──────────┐
+   🧬 MoE Router            │        ▼          ▼          ▼
        │                   │      Shell       File     Browser
        │                   │                              │
-       │                   │                              ▼
-       │                   │                         🌐 Chromium
+       ▼                   │                              ▼
+   Expert Models           │                         🌐 Chromium
        │                   │                              │
-       │                   │                              ▼
-       │                   │                             CDP
-       │                   │
        └───────────────────┼──────────────────────────────┘
                            │
                            ▼
@@ -106,7 +105,7 @@ MyAI 的核心設計理念是：
 
 «Offline First，而不是 Cloud First。»
 
-## 在沒有網路的情況下，MyAI 的核心能力仍然可以在本地運作。
+在沒有網路的情況下，MyAI 的核心能力仍然可以在本地運作。
 
 包括：
 
@@ -191,6 +190,8 @@ Agent Core 負責整個任務執行流程。
        ↓
 🧠 Planning
        ↓
+🧬 Model Routing
+       ↓
 🛠️ Tool Selection
        ↓
 🛡️ Permission / Risk Check
@@ -213,6 +214,10 @@ Agent Core 負責整個任務執行流程。
              ▼
           Retry
 ```
+Agent Core 是整個系統的主要控制中心。
+
+MoE Router 負責選擇推理模型，但不取代 Agent Core 的任務管理、工具管理與安全控制。
+
 ---
 
 ## 🧠 6. Local AI Engine — 本地 AI
@@ -223,7 +228,7 @@ MyAI 本身不綁定特定模型。
 
 使用者可以自行準備：
 
-- "llama.cpp"
+- llama.cpp
 - 相容的 GGUF 模型
 
 概念：
@@ -254,9 +259,176 @@ MyAI 本身不綁定特定模型。
 
 選擇適合自己的模型。
 
+# MyAI 也可以透過 MoE Expert Routing，使用多個不同的專業模型，而不是永遠依賴單一模型。
+
 ---
 
-## 🛠️ 7. Tool Framework — AI 的手腳
+## 🧬 7. MoE Expert Routing — 專家模型路由系統
+
+MyAI 支援外部 Expert Router（專家模型路由器）架構。
+
+透過 MoE Router，MyAI 可以根據使用者的需求，在 Main Model 與不同的 Expert Model 之間選擇合適的推理模型。
+
+7.1 Architecture — 架構
+
+目前採用：
+
+«External Expert Routing / MoE Simulation»
+
+這不是直接修改 LLM 內部的 Mixture of Experts 結構。
+
+而是在 Agent Core 與 Local AI Model 之間建立一個獨立的模型路由層。
+
+                 🤖 MyAI Agent Core
+                         │
+                         ▼
+                  🧩 Context System
+                         │
+                         ▼
+                    🧬 MoE Router
+                         │
+              ┌──────────┴──────────┐
+              ▼                     ▼
+       🔍 Expert Matching       No Match
+              │                     │
+              ▼                     ▼
+       🧠 Expert Model          🧠 Main Model
+              │                     │
+              ▼                     ▼
+       Expert Response         Main Response
+              │                     │
+              └──────────┬──────────┘
+                         ▼
+                    🤖 Agent Core
+                         │
+                         ▼
+                   🛡️ Security
+
+7.2 Expert Selection — 專家選擇
+
+MoE Router 會掃描 "expert/" 目錄，讀取各個 Expert 的 "expert.json" 設定。
+
+目前使用關鍵字匹配進行初步分類。
+
+例如：
+
+Expert| 關鍵字範例
+Python Expert| Python、程式碼、Debug、除錯
+Rust Expert| Rust、Cargo、Crate
+Linux Expert| Linux、Shell、系統管理
+
+Router 會根據關鍵字命中情況選擇適合的 Expert。
+
+目前選擇邏輯：
+
+- 比對使用者訊息與各 Expert 的關鍵字。
+- 統計關鍵字命中數量。
+- 優先選擇命中數較多的 Expert。
+- 命中數相同時，參考命中關鍵字的總長度。
+- 無法明確選出專家時，使用 Main Model。
+
+目前屬於規則式路由，並非語意模型評分或自動判斷模型能力。
+
+7.3 Expert Identity — 專家身份設定
+
+每個 Expert 都可以擁有自己的 "expert.json"。
+
+目前支援的設定欄位：
+
+欄位| 用途
+"enabled"| 是否啟用 Expert
+"name"| Expert 名稱
+"model"| GGUF 模型檔案
+"keywords"| 路由關鍵字
+"port"| 模型服務連接埠
+"ctx_size"| 上下文長度
+"n_gpu_layers"| GPU Offload 層數
+"threads"| CPU 執行緒數
+
+範例：
+
+{
+  "enabled": true,
+  "name": "Python Expert",
+  "model": "python-expert.gguf",
+  "keywords": [
+    "python",
+    "程式碼",
+    "debug",
+    "除錯",
+    "函式"
+  ],
+  "port": 8101,
+  "ctx_size": 8192,
+  "n_gpu_layers": 0,
+  "threads": 8
+}
+
+7.4 Expert Runtime — 專家模型執行環境
+
+當 Router 找到符合條件的 Expert：
+
+1. 啟動對應的 llama-server。
+2. 建立獨立的模型服務。
+3. 將 Context 傳送給 Expert。
+4. 接收 Expert Response。
+5. 將回答交回 Agent Core。
+
+每個 Expert 可以使用自己的 GGUF 模型與執行設定。
+
+7.5 Fallback — 主模型回退機制
+
+MyAI 不會因為某個 Expert 無法使用，就讓整個 Agent 停止工作。
+
+Fallback 條件包括：
+
+- 沒有符合條件的 Expert。
+- Expert 啟動失敗。
+- Expert 推論失敗。
+
+發生上述情況時，Router 會改用原本的 Main Model。
+
+          🧬 MoE Router
+                 │
+                 ▼
+          Select Expert
+                 │
+          ┌──────┴──────┐
+          ▼             ▼
+       Success        Failure
+          │             │
+          ▼             ▼
+     Expert Model    Main Model
+          │             │
+          └──────┬──────┘
+                 ▼
+           Agent Response
+
+7.6 Security Integration — 安全整合
+
+Expert Model 不會因為具有專業能力，就自動取得額外系統權限。
+
+所有工具操作仍然必須經過 Agent Core 原有的安全流程：
+
+- Tool Parser
+- Permission System
+- Command Guard
+- Risk Analyzer
+- Human Confirmation
+
+Expert 負責產生回答與工具請求，實際操作仍由 Agent Core 管理。
+
+7.7 Design Philosophy — 設計理念
+
+«一個主模型負責通用推理，多個專家模型負責特定領域。
+
+讓 MyAI 可以依照任務選擇適合的大腦，而不是永遠使用同一個模型。»
+
+MoE Expert Routing 讓 MyAI 的 AI Engine 朝向可替換、可擴充、可管理的多模型架構發展。
+
+---
+
+## 🛠️ 8. Tool Framework — AI 的手腳
 
 如果：
 
@@ -276,9 +448,7 @@ MyAI 的 Tool Framework 負責管理 Agent 能使用的能力。
 - Capability System
 - Permission Handling
 
----
-
-## 💻 Shell / Command Tool
+💻 Shell / Command Tool
 
 讓 Agent 能夠操作 Runtime。
 
@@ -298,8 +468,6 @@ MyAI 的 Tool Framework 負責管理 Agent 能使用的能力。
 
 «真正執行 command，然後讀取結果。»
 
----
-
 ## 📁 File Tool
 
 讓 Agent 能夠操作檔案。
@@ -315,9 +483,7 @@ MyAI 的 Tool Framework 負責管理 Agent 能使用的能力。
 
 這讓 Agent 能夠直接理解自己的工作環境與專案。
 
----
-
-## 🌐 Browser Tool
+🌐 Browser Tool
 
 提供 Browser Automation 能力。
 
@@ -333,9 +499,7 @@ MyAI 的 Tool Framework 負責管理 Agent 能使用的能力。
 - Failure Detection
 - Recovery
 
----
-
-## 📚 Knowledge Tool
+📚 Knowledge Tool
 
 管理：
 
@@ -345,9 +509,7 @@ MyAI 的 Tool Framework 負責管理 Agent 能使用的能力。
 - 使用者資料
 - Knowledge Base
 
----
-
-## 🔍 Project Scanner
+🔍 Project Scanner
 
 讓 Agent 可以檢查專案：
 ```
@@ -373,7 +535,7 @@ MyAI 的 Tool Framework 負責管理 Agent 能使用的能力。
 
 ---
 
-## 🌐 8. Browser Agent — AI 的瀏覽器能力
+## 🌐 9. Browser Agent — AI 的瀏覽器能力
 
 Browser Agent 是 MyAI 的重要子系統。
 
@@ -411,7 +573,7 @@ Browser Agent 可以根據：
 
 ---
 
-## 🌐 9. Chromium Runtime
+## 🌐 10. Chromium Runtime
 
 MyAI 可以搭配獨立 Chromium "headless-shell" Runtime。
 
@@ -421,7 +583,7 @@ Repository 中包含 Chromium Runtime 所需要的相關元件。
 
 ---
 
-## 🐧 10. Linux RootFS — Chromium Runtime Environment
+## 🐧 11. Linux RootFS — Chromium Runtime Environment
 
 MyAI 包含 Linux RootFS。
 
@@ -446,7 +608,7 @@ MyAI 包含 Linux RootFS。
 ```
 ---
 
-## 📱 11. Termux Runtime
+## 📱 12. Termux Runtime
 
 Android 部署可以使用 Termux 作為基礎 Runtime。
 
@@ -460,7 +622,7 @@ Runtime 可以提供：
 - 🛠️ Development Tools
 - 🧠 Local AI Runtime
 
-# MyAI Core 不需要把整個 Agent 架構寫死在 Termux 裡。
+MyAI Core 不需要把整個 Agent 架構寫死在 Termux 裡。
 
 Termux 更像是：
 
@@ -468,27 +630,27 @@ Termux 更像是：
 
 ---
 
-## 💾 12. Memory System — AI 的記憶
+## 💾 13. Memory System — AI 的記憶
 
 MyAI 將 Memory 與目前 Task Context 分開。
 
 可以包含：
 
 - ⚡ Short-Term Memory
-
-目前任務的暫時資訊。
+  
+  目前任務的暫時資訊。
 
 - 🕐 Recent Memory
-
-近期任務與工作狀態。
+  
+  近期任務與工作狀態。
 
 - 🧠 Long-Term Memory
-
-需要長期保存的資訊。
+  
+  需要長期保存的資訊。
 
 - 📚 Knowledge Memory
-
-專案與技術知識。
+  
+  專案與技術知識。
 
 概念：
 ```
@@ -504,7 +666,7 @@ MyAI 將 Memory 與目前 Task Context 分開。
 ```
 ---
 
-## 🧩 13. Context System — 當前狀態
+## 🧩 14. Context System — 當前狀態
 
 Context 負責保存 Agent 當前正在做什麼。
 
@@ -523,7 +685,7 @@ Memory 則負責更長期的資訊保存。
 
 ---
 
-## 💬 14. Conversation System — 對話與自我對話
+## 💬 15. Conversation System — 對話與自我對話
 
 MyAI 不只可以與使用者對話。
 
@@ -578,7 +740,7 @@ MyAI 不只可以與使用者對話。
 
 ---
 
-## 🛡️ 15. Security Layer — AI 不能想幹嘛就幹嘛
+## 🛡️ 16. Security Layer — AI 不能想幹嘛就幹嘛
 
 MyAI 擁有：
 
@@ -609,7 +771,7 @@ MyAI 擁有：
 
 ---
 
-## 🔧 16. Self-Repair — 自我檢查與修復
+## 🔧 17. Self-Repair — 自我檢查與修復
 
 MyAI 的 Tool + Source Inspection + Execution 能力，使它可以朝 Self-Repair 發展。
 
@@ -642,7 +804,7 @@ MyAI 的 Tool + Source Inspection + Execution 能力，使它可以朝 Self-Repa
 
 ---
 
-## 🧬 17. Self-Extension — 自我建立工具
+## 🧬 18. Self-Extension — 自我建立工具
 
 Tool Framework 的可擴充設計，使 MyAI 理論上可以進一步支援：
 
@@ -678,7 +840,7 @@ Tool Framework 的可擴充設計，使 MyAI 理論上可以進一步支援：
 
 ---
 
-## 🚀 18. Self-Upgrade — 自我升級
+## 🚀 19. Self-Upgrade — 自我升級
 
 MyAI 的長期方向不一定是：
 ```
@@ -730,7 +892,7 @@ Self-Upgrade 不代表無限制修改自己。
 
 ---
 
-## 🧠 19. Replaceable Brain — 可替換的大腦
+## 🧠 20. Replaceable Brain — 可替換的大腦
 
 MyAI 不把模型當作整個產品。
 
@@ -749,11 +911,13 @@ MyAI 不把模型當作整個產品。
           ▼         ▼         ▼
        Model A   Model B   Model C
 
+透過 MoE Expert Routing，還可以在多個模型之間進行任務路由。
+
 未來可以依照裝置與需求更換不同模型。
 
 ---
 
-## 20. 🌍 Platform Independence — 不綁死平台
+## 🌍 21. Platform Independence — 不綁死平台
 
 MyAI 的核心架構與底層 Runtime 分離。
 
@@ -767,7 +931,6 @@ MyAI 的核心架構與底層 Runtime 分離。
 - 🪟 Windows
 - 🍎 macOS
 - 🐧 Linux
-
 
 不同平台可以替換平台相關元件：
 
@@ -786,7 +949,7 @@ MyAI 的核心架構與底層 Runtime 分離。
 
 而是：
 
-«「一個可以被移植到不同平台的 Local AI Agent System。」»
+## «「一個可以被移植到不同平台的 Local AI Agent System。」»
 
 例如：
 ```
@@ -821,10 +984,9 @@ macOS
        ▼          ▼          ▼
     Android     Linux     Windows / macOS
 
-
 ---
 
-## 💾 21. Backup & Migration
+## 💾 22. Backup & Migration
 
 MyAI 可以將核心與 Runtime 拆分。
 ```
@@ -851,7 +1013,7 @@ MyAI 可以將核心與 Runtime 拆分。
 
 ---
 
-## 🗂️ 22. Repository Structure
+## 🗂️ 23. Repository Structure
 ```
 MyAI-Offline-Personal-AI-Agent-System-
 │
@@ -863,6 +1025,14 @@ MyAI-Offline-Personal-AI-Agent-System-
 │   ├── runtime/
 │   ├── tests/
 │   ├── tools/
+│   │
+│   ├── 🧬 expert/
+│   │   ├── .gitkeep
+│   │   └── <expert-name>/
+│   │       ├── expert.json
+│   │       └── <expert-model>.gguf
+│   │
+│   ├── MoE.py
 │   ├── agent.py
 │   ├── command_guard.py
 │   ├── context_manager.py
@@ -877,10 +1047,14 @@ MyAI-Offline-Personal-AI-Agent-System-
 │
 └── 📱 termux_usr/
 ```
+"expert/" 用於存放 Expert Model 的設定與模型檔案。
+
+實際 Expert 目錄會依照使用者安裝的專家模型而增加。
+
 ---
 
-## 🏗️ 23. System Stack
-
+## 🏗️ 24. System Stack
+```
                     👤 USER
                        │
                        ▼
@@ -890,26 +1064,43 @@ MyAI-Offline-Personal-AI-Agent-System-
           ▼            ▼            ▼
        🧠 AI        💾 Memory     🛠️ Tools
        Engine       Context       Framework
-          │                         │
-          │              ┌──────────┼──────────┐
-          │              ▼          ▼          ▼
-          │           💻 Shell    📁 File    🌐 Browser
-          │                                      │
-          ▼                                      ▼
-     llama.cpp                                  CDP
-          │                                      │
-          ▼                                      ▼
-      GGUF Model                             Chromium
-                                                 │
-                                                 ▼
-                                          🐧 Linux RootFS
-                                                 │
-                                                 ▼
-                                           📱 Host Runtime
-
+          │
+          ▼
+      🧬 MoE Router
+          │
+     ┌────┴─────┐
+     ▼          ▼
+ Main Model  Expert Models
+     │          │
+     └────┬─────┘
+          ▼
+      llama.cpp
+          │
+          ▼
+       GGUF Model
+```
+```
+                    🛠️ Tools
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+       💻 Shell      📁 File     🌐 Browser
+                                     │
+                                     ▼
+                                    CDP
+                                     │
+                                     ▼
+                                 Chromium
+                                     │
+                                     ▼
+                              🐧 Linux RootFS
+                                     │
+                                     ▼
+                               📱 Host Runtime
+```
 ---
 
-## 🔥 24. What Makes MyAI Different?
+## 🔥 25. What Makes MyAI Different?
 
 MyAI 並不是把：
 
@@ -919,7 +1110,7 @@ MyAI 並不是把：
 
 它更接近：
 
-«Local AI + Agent + Tools + Memory + Runtime + Environment»
+«Local AI + Multi-Model Routing + Agent + Tools + Memory + Runtime + Environment»
 
 讓 AI 從：
 
@@ -930,6 +1121,8 @@ MyAI 並不是把：
 「理解問題」
       ↓
 「制定計畫」
+      ↓
+「選擇合適的模型」
       ↓
 「使用工具」
       ↓
@@ -953,7 +1146,7 @@ MyAI 並不是把：
 ```
 ---
 
-## 🚀 25. Future Direction
+## 🚀 26. Future Direction
 
 MyAI 沒有必要被限制成：
 
@@ -962,6 +1155,8 @@ MyAI 沒有必要被限制成：
 更有趣的方向是：
 ```
 🧠 Think
+   ↓
+🧬 Select Model
    ↓
 🛠️ Act
    ↓
@@ -981,13 +1176,13 @@ MyAI 沒有必要被限制成：
    ↓
         ↻
 ```
-# 理想狀態：
+理想狀態：
 
-«讓 MyAI 成為一個可以持續擴充、維護與改善自身能力的 Agent System。»
+# «讓 MyAI 成為一個可以持續擴充、維護與改善自身能力的 Agent System。»
 
 ---
 
-## ⚠️ 26. Important Notes
+## ⚠️ 27. Important Notes
 
 MyAI 的 Self-Repair、Self-Extension、Self-Upgrade 等方向，代表的是：
 
@@ -1000,7 +1195,7 @@ MyAI 的 Self-Repair、Self-Extension、Self-Upgrade 等方向，代表的是：
 - ❌ AI 能無限制修改系統
 - ❌ AI 一定能自行提升智慧
 
-# 任何涉及自我修改或高風險操作的能力，都應該受到：
+任何涉及自我修改或高風險操作的能力，都應該受到：
 
 - 🛡️ Permission
 - 🧪 Testing
@@ -1011,19 +1206,23 @@ MyAI 的 Self-Repair、Self-Extension、Self-Upgrade 等方向，代表的是：
 
 控制。
 
+MoE Expert Routing 也不代表 Expert Model 能繞過 Agent Core 的安全機制。
+
 ---
 
-## 📦 27. Requirements
+## 📦 28. Requirements
 
 MyAI 是一個模組化系統。
 
-# 使用者需要依照自己的平台準備相應 Runtime。
+使用者需要依照自己的平台準備相應 Runtime。
 
 Local AI 部分需要：
 
 llama.cpp
-+
+    +
 Compatible GGUF Model
+
+使用 MoE Expert Routing 時，還可以依照需求準備額外的 Expert GGUF 模型。
 
 不同平台可以使用不同的：
 
@@ -1032,11 +1231,11 @@ Compatible GGUF Model
 - Browser
 - Dependencies
 
-# MyAI Core 的設計目標是不將自身永久綁定於單一平台或單一模型。
+MyAI Core 的設計目標是不將自身永久綁定於單一平台或單一模型。
 
 ---
 
-## 📊 28. Project Status
+## 📊 29. Project Status
 
 MyAI 是一個持續演進中的開源專案。
 
@@ -1044,6 +1243,7 @@ MyAI 是一個持續演進中的開源專案。
 
 - 🤖 Agent Core
 - 🧠 Local AI Engine
+- 🧬 MoE Expert Routing Foundation
 - 🛠️ Tool Framework
 - 💻 Shell / Command
 - 📁 File Operations
@@ -1060,15 +1260,38 @@ MyAI 是一個持續演進中的開源專案。
 - 🌍 Network Tools
 - 💾 Backup / Migration
 
+🧬 MoE Expert Routing Status
+
+目前已完成：
+
+- Expert Directory Scanning
+- JSON-based Expert Configuration
+- Keyword-based Expert Selection
+- Expert Server Management Foundation
+- Main Model Fallback
+- Agent Core Integration
+
+已驗證：
+
+- 無符合 Expert 時，能正常回退至 Main Model。
+
+仍待進一步驗證：
+
+- 實際 Expert GGUF 模型啟動。
+- Expert 完整推論流程。
+- Expert 失敗情況下的完整 Fallback 流程。
+
 部分能力仍處於實驗、開發或持續演進階段。
 
 ---
 
-## 🎯 29. Philosophy
+## 🎯 30. Philosophy
 
 «AI 不應該只能聊天。
 
 給它一顆大腦。 🧠
+
+給它多個專家。 🧬
 
 給它記憶。 💾
 
@@ -1080,33 +1303,33 @@ MyAI 是一個持續演進中的開源專案。
 
 然後看看它能做到什麼。 🚀»
 
-(PS.上述功能 基本都已實作完成 部分處於實驗 開發階段)
-
-
 ---
 
-## 🏆 生態合作與展示 / Ecosystem & Showcase ✨ 官方特邀入駐 / Featured Showcase
+## 🏆 Ecosystem & Showcase — 生態合作與展示 ✨ 官方特邀入駐 / Featured Showcase
 
-- 本專案受邀進駐由 熾光時代、香港科技大學（廣州）、紫金山實驗室等機構協辦的 Agent2048 全球智能體大賽平台，擔任 項目進駐方
+- 本專案受邀進駐由 熾光時代、香港科技大學（廣州）、紫金山實驗室、國際AI算力協會 等機構協辦的 Agent2048 全球智能體大賽平台，擔任項目進駐方。
 
 - 官方網站：https://agent2048.com/zh
+
 - 專案網址：https://agent2048.com/zh/projects/s1s53knto6pr
+
 ---
 
 ## 📬 聯繫創作者
 
 - Gmail: b0953166696@gmail.com
-- 本人17歲🤔 做的不好請見諒
-- 獨立開發 ＆ AI協作
+- 本人17歲 🤔 做的不好請見諒
+- 獨立開發 ＆ AI 協作
 - 緩慢更新 ＆ 除錯
-- 純手機Termux 開發👀
+- 純手機 Termux 開發 👀
 - 持續開發中…
 
 ---
 
 ## 👀 作品 & 產品集
 
-- [UTE - Universal Training Engine](https://github.com/a370373/UTE-Universal-Training-Engine)
+- [MySSH](https://github.com/a370373/MySSS-Server/tree/main)
+- [UTE-Universal Training Engine](https://github.com/a370373/UTE-Universal-Training-Engine)
 - [0-or-1](https://github.com/a370373/0-or-1)
 - [MyDNS](https://github.com/a370373/MyDNS/tree/main)
 - [Cyber-Fly-Android-Bridge](https://github.com/a370373/Cyber-Fly-Android-Bridge)
@@ -1120,10 +1343,10 @@ MyAI 是一個持續演進中的開源專案。
 
 ---
 
-## 🤖 AI 協作
+🤖 AI 協作
 
 MyAI 由 a370373/XRH 發起、設計與開發。
 
-開發過程中使用 OpenAI ChatGPT 作為 AI 協作夥伴，協助進行 技術分析、程式碼檢查、除錯 & 文件整理。
+開發過程中使用 OpenAI ChatGPT 作為 AI 協作夥伴，協助進行技術分析、程式碼檢查、除錯與文件整理。
 
-產品方向、設計理念 & 最終決策由專案創作者負責。
+產品方向、設計理念與最終決策由專案創作者負責。
