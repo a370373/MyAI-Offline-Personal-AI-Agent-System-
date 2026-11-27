@@ -1,5 +1,5 @@
 from core.result_formatter import format_result
-from core.model import ask
+from MoE import route_request
 from core.tool_parser import parse_tool
 from core.action_controller import execute_actions
 from core.planner import create_plan
@@ -459,7 +459,7 @@ def handle(user_input, runtime=None):
     )
 
 
-    response = ask(
+    response = route_request(
         context
     )
 
