@@ -1,0 +1,58 @@
+{
+  "enabled": true,
+  "paths": {
+    "ute_root": "",
+    "python": "python3",
+    "llama_cpp": "",
+    "quantize_bin": "",
+    "workspace": "workspace/ute",
+    "logs": "logs/ute"
+  },
+  "training": {
+    "model": "",
+    "data_dir": "",
+    "epochs": 3.0,
+    "learning_rate": 0.0001,
+    "max_length": 1024,
+    "batch_size": 1,
+    "gradient_accumulation": 4,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "train_embeddings": false,
+    "quantization": "none",
+    "quant_type": "nf4",
+    "double_quant": true,
+    "compute_dtype": "auto",
+    "target_modules": "all-linear",
+    "cpu_threads": 4,
+    "seed": 42,
+    "resume_checkpoint": ""
+  },
+  "merge": {
+    "dtype": "auto",
+    "trust_remote_code": false
+  },
+  "gguf": {
+    "outtype": "f16",
+    "quantization": "Q4_K_M",
+    "keep_f16": false
+  },
+  "workflow": {
+    "timeout_seconds": {
+      "training": 86400,
+      "merge": 43200,
+      "gguf": 43200
+    },
+    "register_expert": true,
+    "cleanup_intermediates": true
+  },
+  "expert": {
+    "name": "custom-expert",
+    "keywords": [],
+    "port": 8101,
+    "ctx_size": 8192,
+    "n_gpu_layers": 0,
+    "threads": 8
+  }
+}
