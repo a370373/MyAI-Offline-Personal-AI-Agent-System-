@@ -1,4 +1,5 @@
 from core.agent_core import handle
+from core.goal_controller import run_goal
 from core.runtime.runtime_manager import RuntimeManager
 
 runtime_manager = RuntimeManager()
@@ -14,7 +15,13 @@ while True:
     if user == "exit":
         break
 
-    answer = handle(user, runtime_manager)
-
+    if (
+        user.strip() == '/goal'
+        or user.strip().startswith('/goal ')
+    ):
+        goal = user.strip()[len('/goal'):].strip()
+        answer = run_goal(goal, runtime_manager)
+    else:
+        answer = handle(user, runtime_manager)
     print("\nAI：")
     print(answer)

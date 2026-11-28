@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "max_reflections": 10,
+  "max_tool_calls": 20,
+  "allow_retry": true,
+  "detect_repeated_actions": true
+}

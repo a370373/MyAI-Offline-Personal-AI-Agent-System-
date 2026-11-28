@@ -34,6 +34,11 @@
             "module": "tools.browser.browser",
             "description": "控制 Chromium 瀏覽器，可開啟網站、搜尋、讀取、點擊、輸入",
             "name": "browser"
+        },
+        {
+            "module": "tools.ute_train",
+            "description": "執行 UTE 模型訓練、Adapter 合併、GGUF 轉換、驗證與 MoE Expert 註冊",
+            "name": "ute_train"
         }
     ]
 }
